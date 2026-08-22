@@ -26,6 +26,7 @@
       <a href="#results">Results</a>
       <a href="#zones">Balance Model</a>
       <a href="#workflow">Workflow</a>
+      <a href="#essay-lab">Essay Lab</a>
     </nav>
     <a class="nav-btn" href="#prompt-lab">Prompt Lab ↗</a>
   </header>
@@ -297,9 +298,74 @@
       </div>
     </section>
 
+    <section class="section essay-lab-section" id="essay-lab">
+      <div class="section-heading centered reveal">
+        <span class="section-number">07 / ESSAY LAB</span>
+        <h2>A finished essay,<br><span>evaluated by AI.</span></h2>
+        <p>A demo workspace showing how the same essay can be reviewed for structure, style, vocabulary, grammar and overall English level.</p>
+      </div>
+
+      <div class="essay-tabs reveal">
+        <button class="essay-tab active" data-essay-tab="essay">01 · Sample Essay</button>
+        <button class="essay-tab" data-essay-tab="review">02 · AI Review</button>
+        <button class="essay-tab" data-essay-tab="template">03 · Essay Template</button>
+      </div>
+
+      <div class="essay-workspace reveal">
+        <article class="essay-pane essay-pane-essay active" data-essay-panel="essay">
+          <div class="essay-pane-head">
+            <div><span class="tag">SAMPLE RESPONSE</span><h3>Should students use AI when writing essays?</h3></div>
+            <span class="word-count">≈ 260 words</span>
+          </div>
+          <div class="essay-text">
+            <p><strong>Introduction.</strong> Artificial intelligence is becoming a normal part of education, and many students now use tools such as chatbots when they write essays. Some people believe that this makes learning easier, while others worry that students will stop developing their own skills. In my opinion, AI can be useful for writing, but it should support the student rather than replace the student's thinking.</p>
+            <p><strong>Body paragraph 1.</strong> One advantage of AI is that it can give immediate feedback. For example, a student can ask it to identify repeated words, unclear sentences or common grammar mistakes. This can help learners notice problems that they might miss when checking their work alone. AI can also suggest several vocabulary choices, which allows students to compare different ways of expressing the same idea.</p>
+            <p><strong>Body paragraph 2.</strong> However, using AI to create a complete essay can cause serious problems. If a student simply copies a generated answer, the final text may look impressive without showing what the student actually understands. The student may also find it difficult to explain the argument or vocabulary during a discussion. Therefore, the quality of the final text is not the only thing that should be assessed.</p>
+            <p><strong>Conclusion.</strong> Overall, I believe the best approach is balanced. Students should develop their ideas and write a first draft themselves, then use AI to receive feedback and make informed revisions. In this way, technology can improve the writing process while human judgement, responsibility and learning remain at the centre.</p>
+          </div>
+        </article>
+
+        <article class="essay-pane" data-essay-panel="review">
+          <div class="essay-pane-head">
+            <div><span class="tag">AI EVALUATION · DEMO</span><h3>Writing review</h3></div>
+            <div class="cefr-badge">B2 <small>CEFR</small></div>
+          </div>
+          <div class="score-grid">
+            <div class="score-card"><span>STRUCTURE</span><strong>4.5<span>/5</span></strong><p>Clear introduction, two focused body paragraphs and a logical conclusion.</p><div class="score-track"><i style="width:90%"></i></div></div>
+            <div class="score-card"><span>STYLE</span><strong>4.3<span>/5</span></strong><p>Formal and consistent tone with good sentence variety.</p><div class="score-track"><i style="width:86%"></i></div></div>
+            <div class="score-card"><span>VOCABULARY</span><strong>4.2<span>/5</span></strong><p>Useful academic phrases; a few expressions could be more precise.</p><div class="score-track"><i style="width:84%"></i></div></div>
+            <div class="score-card"><span>GRAMMAR</span><strong>4.6<span>/5</span></strong><p>Mostly accurate complex sentences with strong control of linking words.</p><div class="score-track"><i style="width:92%"></i></div></div>
+          </div>
+          <div class="overall-review">
+            <div class="overall-score"><span>OVERALL</span><strong>17.6<span>/20</span></strong></div>
+            <div><span class="tag">ENGLISH LEVEL</span><h4>Upper-intermediate · B2</h4><p>The writer can present a clear position, connect ideas and use a reasonably wide range of language. To move toward C1, the writing needs more precise vocabulary, deeper development of examples and more sophisticated sentence patterns.</p></div>
+          </div>
+          <div class="advice-grid">
+            <div><b>01 · Strength</b><p>Strong organization: each paragraph has a clear purpose and the argument is easy to follow.</p></div>
+            <div><b>02 · Improve</b><p>Replace repeated words such as “students” and “AI” with precise alternatives where the meaning stays clear.</p></div>
+            <div><b>03 · Next step</b><p>Add one specific real-world example and explain why it proves the main point instead of only describing it.</p></div>
+          </div>
+        </article>
+
+        <article class="essay-pane" data-essay-panel="template">
+          <div class="essay-pane-head">
+            <div><span class="tag">REUSABLE FRAMEWORK</span><h3>4-paragraph essay template</h3></div>
+            <button class="copy-btn" data-copy="Introduction: Introduce the topic. Present two sides. State your position.\n\nBody 1: One important advantage/argument is... Explain it. For example... Link back to the question.\n\nBody 2: However, a major disadvantage/counterargument is... Explain it. For instance... Evaluate it.\n\nConclusion: Overall,... Restate your position. Summarise the main reasons. Give a final recommendation or implication.">Copy template</button>
+          </div>
+          <div class="template-list">
+            <div class="template-row"><span>01</span><div><b>INTRODUCTION</b><p>Introduce the topic → show the debate → <mark>state your position</mark>.</p><small>Helpful phrases: <em>In recent years… · Some people argue that… · In my view…</em></small></div></div>
+            <div class="template-row"><span>02</span><div><b>BODY PARAGRAPH 1</b><p>Topic sentence → explanation → example → mini-conclusion.</p><small>Helpful phrases: <em>One major advantage is… · This is because… · For example… · As a result…</em></small></div></div>
+            <div class="template-row"><span>03</span><div><b>BODY PARAGRAPH 2</b><p>Counterargument → explanation → example → evaluation.</p><small>Helpful phrases: <em>However… · On the other hand… · A possible drawback is… · Nevertheless…</em></small></div></div>
+            <div class="template-row"><span>04</span><div><b>CONCLUSION</b><p>Summarise → restate your position → finish with an implication.</p><small>Helpful phrases: <em>Overall… · Taking everything into account… · Therefore… · It is important to…</em></small></div></div>
+          </div>
+          <div class="word-bank"><span>CONNECTORS</span><b>Moreover</b><b>In addition</b><b>However</b><b>Therefore</b><b>For instance</b><b>As a result</b><b>Nevertheless</b><b>Overall</b></div>
+        </article>
+      </div>
+    </section>
+
     <section class="section rubric-section">
       <div class="section-heading reveal">
-        <span class="section-number">07 / ASSESSMENT</span>
+        <span class="section-number">08 / ASSESSMENT</span>
         <h2>Quality + <span>ownership.</span></h2>
       </div>
 

@@ -146,3 +146,17 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+
+// Essay Lab tabs: sample essay, AI-style evaluation and reusable template.
+const essayTabs = document.querySelectorAll(".essay-tab");
+const essayPanels = document.querySelectorAll("[data-essay-panel]");
+essayTabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    essayTabs.forEach(t => t.classList.remove("active"));
+    essayPanels.forEach(panel => panel.classList.remove("active"));
+    tab.classList.add("active");
+    const target = document.querySelector(`[data-essay-panel="${tab.dataset.essayTab}"]`);
+    if (target) target.classList.add("active");
+  });
+});
