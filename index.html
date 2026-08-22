@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Writing Balance — a school research project about generative AI and English essay writing.">
+  <title>AI Writing Balance | Generative AI & English Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <header class="navbar">
+    <a class="logo" href="#top">
+      <span class="logo-mark">AI</span>
+      <span>Writing Balance</span>
+    </a>
+    <nav>
+      <a href="#experiment">Experiment</a>
+      <a href="#results">Results</a>
+      <a href="#zones">Balance Model</a>
+      <a href="#workflow">Workflow</a>
+    </nav>
+    <a class="nav-btn" href="#prompt-lab">Prompt Lab ↗</a>
+  </header>
+
+  <main id="top">
+
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse"></span> SCHOOL RESEARCH PROJECT · 2026</div>
+        <h1>The future of<br><span>essay writing</span><br>is not AI vs. humans.</h1>
+        <p class="hero-text">
+          It is about designing writing tasks where artificial intelligence supports learning
+          without replacing understanding.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#experiment">Explore the research <span>↓</span></a>
+          <a class="btn btn-ghost" href="#zones">See the model</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>250–280</strong><span>word essay task</span></div>
+          <div><strong>3</strong><span>writing conditions</span></div>
+          <div><strong>5</strong><span>assessment criteria</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="ai-core">
+          <span class="core-small">GEN</span>
+          <span class="core-big">AI</span>
+          <span class="core-line"></span>
+          <span class="core-small">WRITING</span>
+        </div>
+        <div class="floating-card card-top">
+          <span class="mini-icon">✦</span>
+          <div><b>Human judgment</b><small>stays in control</small></div>
+        </div>
+        <div class="floating-card card-bottom">
+          <span class="score">23/25</span>
+          <div><b>AI-assisted</b><small>highest pilot score</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section">
+      <div class="section-heading reveal">
+        <span class="section-number">01 / THE PROBLEM</span>
+        <h2>Better writing doesn't<br>always mean <span>more learning.</span></h2>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-copy reveal">
+          <p class="large-copy">
+            Generative AI can produce polished language. But a polished final essay may hide
+            how much the student actually understands, created, and can explain.
+          </p>
+          <p>
+            This project compares independent writing, limited AI assistance, and AI-generated
+            writing using the same task and the same five-criterion rubric.
+          </p>
+        </div>
+
+        <div class="signal-box reveal">
+          <div class="signal-row">
+            <div>
+              <span class="signal-label">AI contribution</span>
+              <div class="signal-track"><i class="fill-high"></i></div>
+            </div>
+            <span class="signal-value">↑</span>
+          </div>
+          <div class="signal-row">
+            <div>
+              <span class="signal-label">Surface text quality</span>
+              <div class="signal-track"><i class="fill-high"></i></div>
+            </div>
+            <span class="signal-value up">↑</span>
+          </div>
+          <div class="signal-row">
+            <div>
+              <span class="signal-label">Ownership evidence</span>
+              <div class="signal-track"><i class="fill-low"></i></div>
+            </div>
+            <span class="signal-value down">↓</span>
+          </div>
+          <div class="signal-note">The key question is not “Is AI good or bad?” — it is “What job is AI doing?”</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experiment">
+      <div class="section-heading centered reveal">
+        <span class="section-number">02 / THE EXPERIMENT</span>
+        <h2>Three ways to write<br>the <span>same essay.</span></h2>
+        <p>Click a condition to inspect the role of the learner and AI.</p>
+      </div>
+
+      <div class="condition-tabs reveal">
+        <button class="condition-tab active" data-condition="independent">01 · Independent</button>
+        <button class="condition-tab" data-condition="assisted">02 · AI-Assisted</button>
+        <button class="condition-tab" data-condition="generated">03 · AI-Generated</button>
+      </div>
+
+      <div class="condition-panel reveal" id="conditionPanel">
+        <div class="condition-number">01</div>
+        <div class="condition-main">
+          <span class="tag">HUMAN-LED</span>
+          <h3>Independent writing</h3>
+          <p>Plans and writes all content with no generative assistance.</p>
+          <div class="role-grid">
+            <div><span>LEARNER</span><strong>Ideas + first draft + final decisions</strong></div>
+            <div><span>AI</span><strong>No generative assistance</strong></div>
+          </div>
+        </div>
+        <div class="condition-score">
+          <span>RECORDED SCORE</span>
+          <strong>20<span>/25</span></strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section-heading reveal">
+        <span class="section-number">03 / RESULTS</span>
+        <h2>The sweet spot was<br><span>limited assistance.</span></h2>
+      </div>
+
+      <div class="results-layout">
+        <div class="chart-card reveal">
+          <div class="chart-title">
+            <div><span class="tag">PILOT RESULTS</span><h3>Total score</h3></div>
+            <span class="max-score">MAX 25</span>
+          </div>
+          <div class="bars">
+            <div class="bar-row">
+              <div class="bar-label"><span>Independent</span><b>20/25</b></div>
+              <div class="bar-track"><i style="width:80%"></i></div>
+            </div>
+            <div class="bar-row featured">
+              <div class="bar-label"><span>AI-Assisted</span><b>23/25</b></div>
+              <div class="bar-track"><i style="width:92%"></i></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label"><span>AI-Generated</span><b>20/25</b></div>
+              <div class="bar-track"><i style="width:80%"></i></div>
+            </div>
+          </div>
+          <p class="chart-note">AI-assisted writing achieved the highest recorded pilot score.</p>
+        </div>
+
+        <div class="index-cards reveal">
+          <div class="index-card">
+            <span>TEXT QUALITY</span>
+            <strong>93.3%</strong>
+            <p>AI-assisted · 14/15</p>
+            <div class="tiny-track"><i style="width:93.3%"></i></div>
+          </div>
+          <div class="index-card">
+            <span>OWNERSHIP EVIDENCE</span>
+            <strong>90%</strong>
+            <p>AI-assisted · 9/10</p>
+            <div class="tiny-track"><i style="width:90%"></i></div>
+          </div>
+          <div class="index-card contrast">
+            <span>AI-GENERATED OWNERSHIP</span>
+            <strong>50%</strong>
+            <p>5/10 — lowest in the pilot</p>
+            <div class="tiny-track"><i style="width:50%"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="criteria reveal">
+        <div class="criteria-head"><span>CRITERION</span><span>INDEPENDENT</span><span>AI-ASSISTED</span><span>AI-GENERATED</span></div>
+        <div><span>Grammar accuracy</span><b>3/5</b><b>5/5</b><b>5/5</b></div>
+        <div><span>Vocabulary</span><b>3/5</b><b>4/5</b><b>5/5</b></div>
+        <div><span>Organization</span><b>4/5</b><b>5/5</b><b>5/5</b></div>
+        <div><span>Originality</span><b>5/5</b><b>4/5</b><b>2/5</b></div>
+        <div><span>Oral explanation</span><b>5/5</b><b>5/5</b><b>3/5</b></div>
+      </div>
+      <p class="source-note">Note: this is a documented pilot comparison, not a statistically generalizable study.</p>
+    </section>
+
+    <section class="section zones-section" id="zones">
+      <div class="section-heading centered reveal">
+        <span class="section-number">04 / AI WRITING BALANCE</span>
+        <h2>Not all AI use<br>is <span>the same.</span></h2>
+        <p>The model classifies the function AI performs in relation to student responsibility.</p>
+      </div>
+
+      <div class="zones">
+        <button class="zone-card green active reveal" data-zone="green">
+          <div class="zone-top"><span class="zone-dot"></span><span>GREEN ZONE</span><b>01</b></div>
+          <h3>AI as a Tutor</h3>
+          <p>Explain · Diagnose · Question · Suggest limited options</p>
+          <div class="zone-expand">Explore <span>→</span></div>
+        </button>
+
+        <button class="zone-card yellow reveal" data-zone="yellow">
+          <div class="zone-top"><span class="zone-dot"></span><span>YELLOW ZONE</span><b>02</b></div>
+          <h3>AI as a Co-writer</h3>
+          <p>Rewrite · Expand · Paraphrase · Generate partial wording</p>
+          <div class="zone-expand">Explore <span>→</span></div>
+        </button>
+
+        <button class="zone-card red reveal" data-zone="red">
+          <div class="zone-top"><span class="zone-dot"></span><span>RED ZONE</span><b>03</b></div>
+          <h3>AI as a Replacement</h3>
+          <p>Generate the assessed work · Hide authorship · Fabricate sources</p>
+          <div class="zone-expand">Explore <span>→</span></div>
+        </button>
+      </div>
+
+      <div class="zone-detail reveal" id="zoneDetail">
+        <div class="zone-detail-icon">✓</div>
+        <div>
+          <span id="zoneRuleTag">GREEN · GENERALLY ALLOWED</span>
+          <h3 id="zoneDetailTitle">Keep the student in control.</h3>
+          <p id="zoneDetailText">Use AI to explain a grammar error, offer vocabulary alternatives, ask questions about an argument, or identify unclear sentences without replacing the student's work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section workflow-section" id="workflow">
+      <div class="section-heading reveal">
+        <span class="section-number">05 / RESPONSIBLE WORKFLOW</span>
+        <h2>Seven steps.<br><span>Human judgement first.</span></h2>
+      </div>
+
+      <div class="workflow">
+        <div class="step reveal"><span>01</span><strong>THINK</strong><p>Choose your position without AI.</p></div>
+        <div class="step reveal"><span>02</span><strong>PLAN</strong><p>Build the structure independently.</p></div>
+        <div class="step reveal"><span>03</span><strong>WRITE</strong><p>Create your first draft.</p></div>
+        <div class="step ai-step reveal"><span>04</span><strong>ASK</strong><p>Ask AI a specific question.</p></div>
+        <div class="step reveal"><span>05</span><strong>CHECK</strong><p>Verify accuracy and appropriateness.</p></div>
+        <div class="step reveal"><span>06</span><strong>REVISE</strong><p>Use your own judgement to edit.</p></div>
+        <div class="step final-step reveal"><span>07</span><strong>DEFEND</strong><p>Explain and defend your final choices.</p></div>
+      </div>
+
+      <div class="formula reveal">
+        <span>HUMAN IDEA</span><i>+</i><span>HUMAN DRAFT</span><i>+</i><span>AI FEEDBACK</span><i>+</i><span>HUMAN DECISION</span><b>= RESPONSIBLE AI-ASSISTED WRITING</b>
+      </div>
+    </section>
+
+    <section class="section prompt-section" id="prompt-lab">
+      <div class="section-heading centered reveal">
+        <span class="section-number">06 / PROMPT LAB</span>
+        <h2>Ask AI to help you<br><span>think better.</span></h2>
+        <p>Good educational prompts preserve productive effort instead of replacing it.</p>
+      </div>
+
+      <div class="prompt-grid">
+        <div class="prompt-card good reveal">
+          <div class="prompt-head"><span class="prompt-icon">✓</span><span>GREEN-ZONE PROMPT</span></div>
+          <code>“Identify up to three grammar problems in this paragraph. Explain each problem, but do not rewrite the paragraph.”</code>
+          <button class="copy-btn" data-copy="Identify up to three grammar problems in this paragraph. Explain each problem, but do not rewrite the paragraph.">Copy prompt</button>
+        </div>
+
+        <div class="prompt-card bad reveal">
+          <div class="prompt-head"><span class="prompt-icon">×</span><span>RED-ZONE PROMPT</span></div>
+          <code>“Write my complete essay and make it sound like a Grade 11 student.”</code>
+          <button class="copy-btn" data-copy="Write my complete essay and make it sound like a Grade 11 student.">Copy prompt</button>
+        </div>
+      </div>
+
+      <div class="prompt-tip reveal">
+        <span>PRO TIP</span>
+        <p>“Ask me three questions to improve my argument” is pedagogically stronger than “Rewrite my argument.”</p>
+      </div>
+    </section>
+
+    <section class="section rubric-section">
+      <div class="section-heading reveal">
+        <span class="section-number">07 / ASSESSMENT</span>
+        <h2>Quality + <span>ownership.</span></h2>
+      </div>
+
+      <div class="rubric-grid reveal">
+        <div class="rubric-card"><span>01</span><h3>Grammar</h3><p>Accurate and varied grammar for the task.</p></div>
+        <div class="rubric-card"><span>02</span><h3>Vocabulary</h3><p>Varied, precise and appropriate vocabulary.</p></div>
+        <div class="rubric-card"><span>03</span><h3>Organization</h3><p>Clear progression, effective paragraphs and cohesion.</p></div>
+        <div class="rubric-card ownership"><span>04</span><h3>Originality</h3><p>Personal position, examples and voice.</p></div>
+        <div class="rubric-card ownership"><span>05</span><h3>Oral explanation</h3><p>Clearly explains, paraphrases and defends choices.</p></div>
+      </div>
+    </section>
+
+    <section class="section conclusion-section">
+      <div class="conclusion reveal">
+        <span class="section-number">FINAL THOUGHT</span>
+        <h2>AI can generate sentences.<br><span>Education must still develop people who can think.</span></h2>
+        <p>Think. Question. Verify. Choose. Explain.</p>
+        <a class="btn btn-primary" href="#top">Back to top ↑</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div><strong>AI Writing Balance</strong><span>School Research Project · 2026</span></div>
+    <div><span>Kudaibergen Alpamys · Nurtayeva Aklima</span><span>Grade 11 · English</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
