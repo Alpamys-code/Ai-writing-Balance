@@ -160,3 +160,24 @@ essayTabs.forEach(tab => {
     if (target) target.classList.add("active");
   });
 });
+
+
+// Floating FAQs
+const faqFab = document.getElementById("faqFab");
+const faqOverlay = document.getElementById("faqOverlay");
+const faqClose = document.getElementById("faqClose");
+
+function setFaq(open){
+  faqOverlay.classList.toggle("open", open);
+  faqOverlay.setAttribute("aria-hidden", String(!open));
+  document.body.style.overflow = open ? "hidden" : "";
+  if(open) faqClose.focus();
+}
+faqFab.addEventListener("click", () => setFaq(true));
+faqClose.addEventListener("click", () => setFaq(false));
+faqOverlay.addEventListener("click", e => {
+  if(e.target === faqOverlay) setFaq(false);
+});
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape" && faqOverlay.classList.contains("open")) setFaq(false);
+});
