@@ -63,7 +63,7 @@ tabs.forEach(tab => {
 
 const zoneData = {
   green: {
-    tag: "GREEN · GENERALLY ALLOWED",
+    tag: "GREEN · FORMATIVE USE; FOLLOW TASK RULES",
     title: "Keep the student in control.",
     text: "Use AI to explain a grammar error, offer vocabulary alternatives, ask questions about an argument, or identify unclear sentences without replacing the student's work.",
     icon: "✓"
@@ -129,13 +129,13 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
   });
 });
 
-const observer = new IntersectionObserver((entries) => {
+const observer = typeof IntersectionObserver === "function" ? new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting) entry.target.classList.add("visible");
   });
-}, {threshold: 0.08});
+}, {threshold: 0.08}) : null;
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+document.querySelectorAll(".reveal").forEach(el => observer ? observer.observe(el) : el.classList.add("visible"));
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", e => {
@@ -171,7 +171,10 @@ function setFaq(open){
   faqOverlay.classList.toggle("open", open);
   faqOverlay.setAttribute("aria-hidden", String(!open));
   document.body.style.overflow = open ? "hidden" : "";
-  if(open) faqClose.focus();
+  if(open) faqClose.focus(); else faqFab.focus();
+  document.querySelector("main").inert = open;
+  document.querySelector("header").inert = open;
+  document.querySelector("footer").inert = open;
 }
 faqFab.addEventListener("click", () => setFaq(true));
 faqClose.addEventListener("click", () => setFaq(false));
@@ -180,4 +183,40 @@ faqOverlay.addEventListener("click", e => {
 });
 document.addEventListener("keydown", e => {
   if(e.key === "Escape" && faqOverlay.classList.contains("open")) setFaq(false);
+});
+
+// Accessible mutually exclusive controls, including arrow-key navigation.
+function accessibleChoices(selector, update) {
+  const buttons = [...document.querySelectorAll(selector)];
+  buttons.forEach((button, index) => {
+    button.setAttribute('aria-pressed', String(button.classList.contains('active')));
+    button.addEventListener('click', () => buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button))));
+    button.addEventListener('keydown', event => {
+      if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length-1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length;
+      buttons[next].focus(); buttons[next].click();
+    });
+  });
+}
+accessibleChoices('.condition-tab'); accessibleChoices('.zone-card'); accessibleChoices('.essay-tab');
+const menuButton = document.querySelector('.menu-toggle');
+const mainNav = document.getElementById('mainNav');
+menuButton.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') !== 'true';
+  menuButton.setAttribute('aria-expanded', String(open)); mainNav.classList.toggle('menu-open', open);
+});
+mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menuButton.setAttribute('aria-expanded','false'); mainNav.classList.remove('menu-open');
+}));
+const essayText = [...document.querySelectorAll('.essay-text p')].map(p => {
+  const clone = p.cloneNode(true); clone.querySelector('strong')?.remove(); return clone.textContent.trim();
+}).join(' ');
+document.getElementById('sampleWordCount').textContent = essayText.split(/\s+/).filter(Boolean).length + ' words · teaching example';
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Tab' || !faqOverlay.classList.contains('open')) return;
+  const elements = [...faqOverlay.querySelectorAll('button, summary, a[href]')];
+  const first = elements[0], last = elements[elements.length-1];
+  if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
 });

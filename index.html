@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
 
   <div class="bg-grid"></div>
   <div class="glow glow-1"></div>
@@ -21,9 +22,11 @@
       <span class="logo-mark">AI</span>
       <span>Writing Balance</span>
     </a>
-    <nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    <nav id="mainNav" aria-label="Main navigation">
       <a href="#experiment">Experiment</a>
       <a href="#results">Results</a>
+      <a href="#sources">Source & limits</a>
       <a href="#zones">Balance Model</a>
       <a href="#workflow">Workflow</a>
       <a href="#essay-lab">Essay Lab</a>
@@ -113,7 +116,7 @@
             </div>
             <span class="signal-value down">↓</span>
           </div>
-          <div class="signal-note">The key question is not “Is AI good or bad?” — it is “What job is AI doing?”</div>
+          <div class="signal-note">Conceptual illustration, not measured data. The key question is not “Is AI good or bad?” — it is “What job is AI doing?”</div>
         </div>
       </div>
     </section>
@@ -125,6 +128,7 @@
         <p>Click a condition to inspect the role of the learner and AI.</p>
       </div>
 
+      <div class="method-note"><h3>What was compared?</h3><p>Task from Project 1: “Should artificial intelligence be used in schools?” Write a 250–280 word opinion essay with a position, reasons, examples, a risk or counterargument, and a conclusion.</p><p>One scored product per condition. Independent writing came first; a new independent draft received limited feedback; full generation was used for comparison. The same five criteria were scored from 1 to 5, followed by oral explanation questions. The project authors performed and scored the pilot.</p></div>
       <div class="condition-tabs reveal">
         <button class="condition-tab active" data-condition="independent">01 · Independent</button>
         <button class="condition-tab" data-condition="assisted">02 · AI-Assisted</button>
@@ -152,7 +156,7 @@
     <section class="section" id="results">
       <div class="section-heading reveal">
         <span class="section-number">03 / RESULTS</span>
-        <h2>The sweet spot was<br><span>limited assistance.</span></h2>
+        <h2>In this pilot,<br><span>limited assistance scored highest.</span></h2>
       </div>
 
       <div class="results-layout">
@@ -200,15 +204,15 @@
         </div>
       </div>
 
-      <div class="criteria reveal">
-        <div class="criteria-head"><span>CRITERION</span><span>INDEPENDENT</span><span>AI-ASSISTED</span><span>AI-GENERATED</span></div>
-        <div><span>Grammar accuracy</span><b>3/5</b><b>5/5</b><b>5/5</b></div>
-        <div><span>Vocabulary</span><b>3/5</b><b>4/5</b><b>5/5</b></div>
-        <div><span>Organization</span><b>4/5</b><b>5/5</b><b>5/5</b></div>
-        <div><span>Originality</span><b>5/5</b><b>4/5</b><b>2/5</b></div>
-        <div><span>Oral explanation</span><b>5/5</b><b>5/5</b><b>3/5</b></div>
+      <div class="criteria reveal" role="table" aria-label="Pilot rubric scores">
+        <div class="criteria-head" role="row"><span role="columnheader">CRITERION</span><span role="columnheader">INDEPENDENT</span><span role="columnheader">AI-ASSISTED</span><span role="columnheader">AI-GENERATED</span></div>
+        <div role="row"><span role="rowheader">Grammar accuracy</span><b role="cell">3/5</b><b role="cell">5/5</b><b role="cell">5/5</b></div>
+        <div role="row"><span role="rowheader">Vocabulary</span><b role="cell">3/5</b><b role="cell">4/5</b><b role="cell">5/5</b></div>
+        <div role="row"><span role="rowheader">Organization</span><b role="cell">4/5</b><b role="cell">5/5</b><b role="cell">5/5</b></div>
+        <div role="row"><span role="rowheader">Originality</span><b role="cell">5/5</b><b role="cell">4/5</b><b role="cell">2/5</b></div>
+        <div role="row"><span role="rowheader">Oral explanation</span><b role="cell">5/5</b><b role="cell">5/5</b><b role="cell">3/5</b></div>
       </div>
-      <p class="source-note">Note: this is a documented pilot comparison, not a statistically generalizable study.</p>
+      <p class="source-note">Percentages are normalized rubric scores, not percentages of students or measured learning gains. Text quality = grammar + vocabulary + organization (15 points). Ownership evidence = originality + oral explanation (10 points); these indicators do not prove authorship.</p>
     </section>
 
     <section class="section zones-section" id="zones">
@@ -244,7 +248,7 @@
       <div class="zone-detail reveal" id="zoneDetail">
         <div class="zone-detail-icon">✓</div>
         <div>
-          <span id="zoneRuleTag">GREEN · GENERALLY ALLOWED</span>
+          <span id="zoneRuleTag">GREEN · FORMATIVE USE; FOLLOW TASK RULES</span>
           <h3 id="zoneDetailTitle">Keep the student in control.</h3>
           <p id="zoneDetailText">Use AI to explain a grammar error, offer vocabulary alternatives, ask questions about an argument, or identify unclear sentences without replacing the student's work.</p>
         </div>
@@ -289,7 +293,7 @@
         <div class="prompt-card bad reveal">
           <div class="prompt-head"><span class="prompt-icon">×</span><span>RED-ZONE PROMPT</span></div>
           <code>“Write my complete essay and make it sound like a Grade 11 student.”</code>
-          <button class="copy-btn" data-copy="Write my complete essay and make it sound like a Grade 11 student.">Copy prompt</button>
+          <p class="source-note">Example to avoid when independent writing is assessed.</p>
         </div>
       </div>
 
@@ -302,13 +306,13 @@
     <section class="section essay-lab-section" id="essay-lab">
       <div class="section-heading centered reveal">
         <span class="section-number">07 / ESSAY LAB</span>
-        <h2>A finished essay,<br><span>evaluated by AI.</span></h2>
-        <p>A demo workspace showing how the same essay can be reviewed for structure, style, vocabulary, grammar and overall English level.</p>
+        <h2>An example essay,<br><span>with an illustrative review.</span></h2>
+        <p>This static teaching example is separate from the three pilot essays. The review is prewritten: this website does not analyse submitted text or call an AI model.</p>
       </div>
 
       <div class="essay-tabs reveal">
         <button class="essay-tab active" data-essay-tab="essay">01 · Sample Essay</button>
-        <button class="essay-tab" data-essay-tab="review">02 · AI Review</button>
+        <button class="essay-tab" data-essay-tab="review">02 · Example Review</button>
         <button class="essay-tab" data-essay-tab="template">03 · Essay Template</button>
       </div>
 
@@ -316,7 +320,7 @@
         <article class="essay-pane essay-pane-essay active" data-essay-panel="essay">
           <div class="essay-pane-head">
             <div><span class="tag">SAMPLE RESPONSE</span><h3>Should students use AI when writing essays?</h3></div>
-            <span class="word-count">≈ 260 words</span>
+            <span class="word-count"><span id="sampleWordCount">Example word count</span></span>
           </div>
           <div class="essay-text">
             <p><strong>Introduction.</strong> Artificial intelligence is becoming a normal part of education, and many students now use tools such as chatbots when they write essays. Some people believe that this makes learning easier, while others worry that students will stop developing their own skills. In my opinion, AI can be useful for writing, but it should support the student rather than replace the student's thinking.</p>
@@ -328,8 +332,8 @@
 
         <article class="essay-pane" data-essay-panel="review">
           <div class="essay-pane-head">
-            <div><span class="tag">AI EVALUATION · DEMO</span><h3>Writing review</h3></div>
-            <div class="cefr-badge">B2 <small>CEFR</small></div>
+            <div><span class="tag">ILLUSTRATIVE REVIEW · NOT PILOT DATA</span><h3>Writing review</h3></div>
+            <div class="cefr-badge">B2 <small>illustrative estimate</small></div>
           </div>
           <div class="score-grid">
             <div class="score-card"><span>STRUCTURE</span><strong>4.5<span>/5</span></strong><p>Clear introduction, two focused body paragraphs and a logical conclusion.</p><div class="score-track"><i style="width:90%"></i></div></div>
@@ -339,7 +343,7 @@
           </div>
           <div class="overall-review">
             <div class="overall-score"><span>OVERALL</span><strong>17.6<span>/20</span></strong></div>
-            <div><span class="tag">ENGLISH LEVEL</span><h4>Upper-intermediate · B2</h4><p>The writer can present a clear position, connect ideas and use a reasonably wide range of language. To move toward C1, the writing needs more precise vocabulary, deeper development of examples and more sophisticated sentence patterns.</p></div>
+            <div><span class="tag">ENGLISH LEVEL</span><h4>Illustrative B2 estimate — not a proficiency assessment</h4><p>The writer can present a clear position, connect ideas and use a reasonably wide range of language. To move toward C1, the writing needs more precise vocabulary, deeper development of examples and more sophisticated sentence patterns.</p></div>
           </div>
           <div class="advice-grid">
             <div><b>01 · Strength</b><p>Strong organization: each paragraph has a clear purpose and the argument is easy to follow.</p></div>
@@ -370,7 +374,7 @@
         <div class="ai-tutor-copy">
           <span class="tag">EXTERNAL AI WRITING TUTOR</span>
           <h3>Try the AI tutor yourself.</h3>
-          <p>Scan the QR code to open our AI writing-tutor demo. Use it for feedback on your writing rather than asking it to replace your work.</p>
+          <p>Scan the QR code to open the external writing-tutor website. It requires internet access and operates separately from this static site. Use anonymized text for feedback, check suggestions yourself, and follow your teacher’s rules. External availability and assessment accuracy are not established by this pilot.</p>
           <a class="btn btn-ghost ai-tutor-link" href="https://aiacademicwritingtutor.lovable.app" target="_blank" rel="noopener noreferrer">Open AI Tutor ↗</a>
         </div>
       </div>
@@ -470,6 +474,7 @@
       </div>
     </section>
 
+<section class="section" id="sources"><div class="section-heading"><span class="section-number">10 / SOURCE & LIMITS</span><h2>Transparent evidence.<br><span>Careful conclusions.</span></h2></div><div class="method-note"><h3>Primary project source</h3><p>All pilot scores, the three-zone model and the seven-step workflow on this site come from the supplied <strong>Project 1</strong> document by Kudaibergen Alpamys and Nurtayeva Aklima, Grade 11; supervisor: Kanatova Natella.</p><p>The Essay Lab review and linked learning resources are supporting demonstrations, not experimental observations. The three-zone model is the project’s proposed framework; permission depends on the teacher and the task.</p><h3>What this pilot cannot establish</h3><ul><li>One product per condition cannot represent all students.</li><li>Scoring was not independent; no inter-rater reliability was measured.</li><li>One topic and fixed order leave task and practice effects unresolved.</li><li>No verified questionnaire dataset or long-term learning outcome is reported.</li><li>Model version, date and settings need to be recorded in future validation.</li></ul><p>Next study: more learners and topics, counterbalanced order, two independent raters, prompt logs and delayed independent writing.</p><h3>Literature listed in Project 1</h3><p>UNESCO (2023), <em>Guidance for generative AI in education and research</em>; Kasneci et al. (2023), <em>ChatGPT for good?</em>, DOI: 10.1016/j.lindif.2023.102274; Kohnke et al. (2023), <em>ChatGPT for Language Teaching and Learning</em>, DOI: 10.1177/00336882231162868; Mahapatra (2024), DOI: 10.1186/s40561-024-00295-9. See Project 1 for the full bibliography.</p></div></section>
     <section class="section conclusion-section">
       <div class="conclusion reveal">
         <span class="section-number">FINAL THOUGHT</span>
@@ -514,7 +519,7 @@
         </details>
         <details>
           <summary>What did the pilot results show?</summary>
-          <p>The independent, AI-assisted and AI-generated conditions scored 20/25, 23/25 and 20/25 respectively. Limited AI assistance produced the strongest overall balance.</p>
+          <p>The independent, AI-assisted and AI-generated conditions scored 20/25, 23/25 and 20/25 respectively. Limited AI assistance had the highest total in this one-case comparison; it does not establish a general effect.</p>
         </details>
       </div>
     </div>
