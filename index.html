@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI Writing Balance — a school research project about generative AI and English essay writing.">
-  <title>AI Writing Balance | Generative AI & English Education</title>
+  <meta name="description" content="The Death of Essay Writing? How Generative AI Is Reshaping English Education — a school research project on Scribe AI and AI Writing Balance.">
+  <title>The Death of Essay Writing? | Scribe AI & English Education</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -16,6 +16,12 @@
   <div class="bg-grid"></div>
   <div class="glow glow-1"></div>
   <div class="glow glow-2"></div>
+
+  <!-- Permanent Upper-Right Feedback Button -->
+  <button class="feedback-fab" id="feedbackFab" type="button" aria-label="Open Scribe AI student feedback and reviews" aria-haspopup="dialog" aria-controls="feedbackOverlay">
+    <span class="feedback-fab-icon" aria-hidden="true">★</span>
+    <span>Feedback</span>
+  </button>
 
   <header class="navbar">
     <a class="logo" href="#top">
@@ -38,11 +44,13 @@
 
     <section class="hero section">
       <div class="hero-copy reveal">
-        <div class="eyebrow"><span class="pulse"></span> SCHOOL RESEARCH PROJECT · 2026</div>
-        <h1>The future of<br><span>essay writing</span><br>is not AI vs. humans.</h1>
+        <div class="eyebrow"><span class="pulse"></span> SCRIBE AI · SCHOOL RESEARCH PROJECT · 2026</div>
+        <h1>The Death of<br><span>Essay Writing?</span></h1>
+        <p class="hero-subtitle">How Generative AI Is Reshaping English Education</p>
+        <p class="hero-authors">Project by <span>Kudaibergen Alpamys &amp; Nurtayeva Aklima</span></p>
         <p class="hero-text">
-          It is about designing writing tasks where artificial intelligence supports learning
-          without replacing understanding.
+          Designing writing tasks where artificial intelligence supports genuine learning
+          without replacing student understanding.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#experiment">Explore the research <span>↓</span></a>
@@ -59,7 +67,7 @@
         <div class="orbit orbit-a"></div>
         <div class="orbit orbit-b"></div>
         <div class="ai-core">
-          <span class="core-small">GEN</span>
+          <span class="core-small">SCRIBE</span>
           <span class="core-big">AI</span>
           <span class="core-line"></span>
           <span class="core-small">WRITING</span>
@@ -372,9 +380,9 @@
         </div>
         <div class="ai-tutor-copy">
           <span class="tag">EXTERNAL AI WRITING TUTOR</span>
-          <h3>Try the AI tutor yourself.</h3>
+          <h3>Try Scribe AI yourself.</h3>
           <p>Scan the QR code to open the external writing-tutor website. It requires internet access and operates separately from this static site. Use anonymized text for feedback, check suggestions yourself, and follow your teacher’s rules. External availability and assessment accuracy are not established by this pilot.</p>
-          <a class="btn btn-ghost ai-tutor-link" href="https://aiacademicwritingtutor.lovable.app" target="_blank" rel="noopener noreferrer">Open AI Tutor ↗</a>
+          <a class="btn btn-ghost ai-tutor-link" href="https://aiacademicwritingtutor.lovable.app" target="_blank" rel="noopener noreferrer">Open Scribe AI Tutor ↗</a>
         </div>
       </div>
     </section>
@@ -485,10 +493,12 @@
 
   </main>
 
+  <!-- Floating FAQs Button (Bottom Right) -->
   <button class="faq-fab" id="faqFab" type="button" aria-label="Open frequently asked questions">
     <span class="faq-fab-icon">?</span><span>FAQs</span>
   </button>
 
+  <!-- FAQs Modal -->
   <div class="faq-overlay" id="faqOverlay" aria-hidden="true">
     <div class="faq-modal" role="dialog" aria-modal="true" aria-labelledby="faqTitle">
       <button class="faq-close" id="faqClose" type="button" aria-label="Close FAQs">×</button>
@@ -524,11 +534,124 @@
     </div>
   </div>
 
+  <!-- Scribe AI Feedback & Reviews Modal -->
+  <div class="feedback-overlay" id="feedbackOverlay" aria-hidden="true">
+    <div class="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="feedbackModalTitle" aria-describedby="feedbackModalDesc">
+      <button class="feedback-close" id="feedbackClose" type="button" aria-label="Close feedback window">×</button>
+
+      <div class="feedback-header">
+        <span class="section-number">SCRIBE AI · STUDENT FEEDBACK</span>
+        <h2 id="feedbackModalTitle">Student experiences &amp; <span>your feedback.</span></h2>
+        <p id="feedbackModalDesc">See how secondary-school students use Scribe AI to improve their English essay writing, and share your own thoughts with our research team.</p>
+      </div>
+
+      <!-- Section A: Review Cards -->
+      <section class="feedback-reviews-section" aria-labelledby="reviewsHeading">
+        <div class="reviews-section-head">
+          <div>
+            <h3 id="reviewsHeading">Student Reviews</h3>
+            <span class="demo-disclaimer-badge" title="Initial cards shown below are illustrative examples">
+              <span class="badge-dot"></span> Illustrative Demo Reviews (Sample Examples)
+            </span>
+          </div>
+          <span class="reviews-sync-status" id="reviewsSyncStatus" aria-live="polite">Showing illustrative examples</span>
+        </div>
+
+        <div class="reviews-grid" id="reviewsGrid"></div>
+      </section>
+
+      <div class="feedback-divider" role="separator"></div>
+
+      <!-- Section B: Leave Your Own Feedback -->
+      <section class="feedback-form-section" aria-labelledby="formHeading">
+        <div class="form-section-head">
+          <h3 id="formHeading">Leave Your Own Feedback</h3>
+          <p>Fields marked with <span class="req-star">*</span> are required. Your submission helps improve Scribe AI.</p>
+        </div>
+
+        <form id="feedbackForm" novalidate>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="fbFullName">Full name <span class="req-star">*</span></label>
+              <input type="text" id="fbFullName" name="fullName" placeholder="e.g., Ayan Serikov" autocomplete="name" required>
+              <span class="field-error" id="errFullName" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label id="starRatingLabel">Star rating (0 to 5) <span class="req-star">*</span></label>
+              <div class="star-rating-control" role="radiogroup" aria-labelledby="starRatingLabel">
+                <button type="button" class="zero-star-btn" id="zeroStarBtn" data-value="0" aria-label="0 stars">0★</button>
+                <div class="stars-list" id="starsList">
+                  <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+                  <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
+                  <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
+                  <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
+                  <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
+                </div>
+                <span class="rating-readout" id="ratingReadout">Not selected</span>
+              </div>
+              <input type="hidden" id="fbRating" name="rating" value="">
+              <span class="field-error" id="errRating" role="alert"></span>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="fbGrade">Grade <span class="opt-tag">(optional)</span></label>
+              <select id="fbGrade" name="grade">
+                <option value="">Select grade (optional)</option>
+                <option value="Grade 7">Grade 7</option>
+                <option value="Grade 8">Grade 8</option>
+                <option value="Grade 9">Grade 9</option>
+                <option value="Grade 10">Grade 10</option>
+                <option value="Grade 11">Grade 11</option>
+                <option value="Grade 12">Grade 12</option>
+                <option value="Teacher / Educator">Teacher / Educator</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="fbSchool">School <span class="opt-tag">(optional)</span></label>
+              <input type="text" id="fbSchool" name="school" placeholder="e.g., NIS / Lyceum / Secondary School">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fbReviewText">Written review <span class="req-star">*</span></label>
+            <textarea id="fbReviewText" name="reviewText" rows="3" placeholder="Share how Scribe AI helped with your essay structure, grammar explanations, or writing confidence..." required></textarea>
+            <span class="field-error" id="errReviewText" role="alert"></span>
+          </div>
+
+          <div class="form-group consent-group">
+            <label class="checkbox-label" for="fbPublicConsent">
+              <input type="checkbox" id="fbPublicConsent" name="publicConsent">
+              <span>I consent to having my review displayed publicly if rated above 4 stars (only my first name and last initial, e.g. <em>Ayan S.</em>, will be shown; my full name and school remain private).</span>
+            </label>
+          </div>
+
+          <div class="form-status-banner" id="formStatusBanner" role="status" aria-live="polite" hidden></div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary fb-submit-btn" id="fbSubmitBtn">
+              <span class="btn-label">Submit Feedback</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <p class="privacy-note">All submissions are privately sent to the project team. Public display applies only to approved reviews rated above 4 stars with consent.</p>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+
   <footer>
-    <div><strong>AI Writing Balance</strong><span>School Research Project · 2026</span></div>
-    <div><span>Kudaibergen Alpamys · Nurtayeva Aklima</span><span>Grade 11 · English</span></div>
+    <div><strong>AI Writing Balance</strong><span>Scribe AI · School Research Project · 2026</span></div>
+    <div><span>Grade 11 · English Education Research</span></div>
   </footer>
 
+  <!-- Optional EmailJS SDK (loaded asynchronously if configured) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
