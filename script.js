@@ -252,7 +252,7 @@ const ILLUSTRATIVE_DEMO_REVIEWS = [
     grade: "Grade 11",
     rating: 5,
     reviewText:
-      "Scribe AI helped me understand why my thesis statement and linking words were weak instead of just rewriting my whole essay for me. My English writing improved much faster.",
+      "I would like feedback that helps me see whether my position is clear, while leaving the actual revision to me.",
     isDemo: true
   },
   {
@@ -263,7 +263,7 @@ const ILLUSTRATIVE_DEMO_REVIEWS = [
     grade: "Grade 10",
     rating: 5,
     reviewText:
-      "I really like how Scribe AI explains every grammar mistake step by step. Learning from my own writing errors made me feel much more confident before our essay exam.",
+      "A short explanation and one useful question would be more helpful to me than a complete rewritten paragraph.",
     isDemo: true
   },
   {
@@ -274,7 +274,7 @@ const ILLUSTRATIVE_DEMO_REVIEWS = [
     grade: "Grade 9",
     rating: 5,
     reviewText:
-      "Using Scribe AI is super easy and convenient. It points out repeated vocabulary and shows why a correction is necessary, so I still keep full control of my own ideas.",
+      "My ideal writing coach would work on a phone without zooming out. One clear draft field makes sense to me.",
     isDemo: true
   },
   {
@@ -285,8 +285,32 @@ const ILLUSTRATIVE_DEMO_REVIEWS = [
     grade: "Grade 11",
     rating: 5,
     reviewText:
-      "The AI feedback is genuinely useful for organizing body paragraphs and counterarguments. It feels like a patient tutor guiding you rather than replacing your work.",
+      "Questions about examples and counterarguments could help me think through a paragraph before I change it.",
     isDemo: true
+  },
+  {
+    id: "demo-5", displayName: "Dana R.", initials: "DR", grade: "Grade 10", rating: 4,
+    reviewText: "I would prefer two or three suggestions at a time. A long list of corrections can be hard to act on.", isDemo: true
+  },
+  {
+    id: "demo-6", displayName: "Timur B.", initials: "TB", grade: "Grade 11", rating: 4,
+    reviewText: "I want to explain my argument aloud after revising it. That would help me check whether I understand my own wording.", isDemo: true
+  },
+  {
+    id: "demo-7", displayName: "Aliya N.", initials: "AN", grade: "Grade 9", rating: 5,
+    reviewText: "It would be useful if the coach asked what my evidence actually shows instead of supplying evidence for me.", isDemo: true
+  },
+  {
+    id: "demo-8", displayName: "Miras A.", initials: "MA", grade: "Grade 10", rating: 4,
+    reviewText: "The distinction between practice guidance and real AI feedback should always be visible. I want to know what is analysing my draft.", isDemo: true
+  },
+  {
+    id: "demo-9", displayName: "Kamila T.", initials: "KT", grade: "Grade 11", rating: 5,
+    reviewText: "A reminder to check suggestions and follow the teacher's rules would make the tool more useful for schoolwork.", isDemo: true
+  },
+  {
+    id: "demo-10", displayName: "Arman D.", initials: "AD", grade: "Grade 10", rating: 4,
+    reviewText: "I would use a reflection question to record what I changed and why, so the final essay still reflects my decisions.", isDemo: true
   }
 ];
 
@@ -315,6 +339,13 @@ const starBtns = [...document.querySelectorAll(".star-btn")];
 const ratingReadout = document.getElementById("ratingReadout");
 
 let approvedCommunityReviews = [];
+let reviewsExpanded = false;
+const reviewsMore = document.getElementById("reviewsMore");
+const reviewsCount = document.getElementById("reviewsCount");
+reviewsMore.addEventListener("click", () => {
+  reviewsExpanded = !reviewsExpanded;
+  renderAllReviews();
+});
 
 function escapeHtml(str) {
   return String(str ?? "")
@@ -348,7 +379,12 @@ function renderStarsString(rating) {
 
 function renderAllReviews() {
   const allCards = [...approvedCommunityReviews, ...ILLUSTRATIVE_DEMO_REVIEWS];
-  reviewsGrid.innerHTML = allCards
+  const visibleCards = reviewsExpanded ? allCards : allCards.slice(0, 4);
+  reviewsMore.hidden = allCards.length <= 4;
+  reviewsMore.setAttribute("aria-expanded", String(reviewsExpanded));
+  reviewsMore.textContent = reviewsExpanded ? "Show less" : `Read ${allCards.length - 4} more ${approvedCommunityReviews.length ? "reviews" : "examples"}`;
+  reviewsCount.textContent = `Showing ${visibleCards.length} of ${allCards.length} cards. Demo examples are fictional.`;
+  reviewsGrid.innerHTML = visibleCards
     .map(item => {
       const safeName = escapeHtml(item.displayName);
       const safeInitials = escapeHtml(item.initials || getInitials(item.displayName));
@@ -359,7 +395,7 @@ function renderAllReviews() {
         item.avatarGradient || "linear-gradient(135deg, #5be49a, #62a8ff)";
       const badgeHtml = item.isDemo
         ? `<span class="review-tag demo-tag">Illustrative Demo Review</span>`
-        : `<span class="review-tag community-tag">Verified Student Review</span>`;
+        : `<span class="review-tag community-tag">Community Review</span>`;
 
       return `
         <article class="review-card ${item.isDemo ? "" : "verified-community"}">
@@ -398,7 +434,7 @@ function getSupabaseConfig() {
 async function fetchApprovedCommunityReviews() {
   const sb = getSupabaseConfig();
   if (!sb.configured) {
-    reviewsSyncStatus.textContent = "Illustrative demo reviews (connect Supabase for live reviews)";
+    reviewsSyncStatus.textContent = "10 fictional examples · not research evidence";
     return;
   }
 
@@ -406,7 +442,7 @@ async function fetchApprovedCommunityReviews() {
   try {
     const endpoint = `${sb.url}/rest/v1/${encodeURIComponent(
       sb.tableName
-    )}?select=id,display_name,grade,rating,review_text,created_at&is_approved=eq.true&rating=gt.4&order=created_at.desc&limit=12`;
+    )}?select=id,display_name,grade,rating,review_text,created_at&is_approved=eq.true&public_consent=eq.true&order=created_at.desc&limit=12`;
 
     const res = await fetch(endpoint, {
       method: "GET",
@@ -426,7 +462,7 @@ async function fetchApprovedCommunityReviews() {
       initials: getInitials(row.display_name || "Student"),
       avatarGradient: "linear-gradient(135deg, #5be49a, #62e6ff)",
       grade: row.grade || "Secondary Student",
-      rating: Number(row.rating) || 5,
+      rating: Math.max(0, Math.min(5, Number(row.rating) || 0)),
       reviewText: row.review_text || "",
       isDemo: false
     }));
@@ -434,7 +470,7 @@ async function fetchApprovedCommunityReviews() {
     renderAllReviews();
     reviewsSyncStatus.textContent =
       approvedCommunityReviews.length > 0
-        ? `${approvedCommunityReviews.length} verified + ${ILLUSTRATIVE_DEMO_REVIEWS.length} illustrative demo reviews`
+        ? `${approvedCommunityReviews.length} community + ${ILLUSTRATIVE_DEMO_REVIEWS.length} illustrative demo reviews`
         : "Showing illustrative demo reviews";
   } catch (err) {
     console.warn("Could not load Supabase reviews:", err);
@@ -506,8 +542,8 @@ async function sendEmailNotification(payload) {
         school: payload.school || "Not provided",
         public_consent: payload.publicConsent ? "Yes" : "No",
         moderation_bucket: payload.eligibleForPublic
-          ? "Public Queue (> 4 stars, awaiting moderation)"
-          : "Private Admin Feedback (<= 4 stars)",
+          ? "Public Queue (consent given, awaiting moderation)"
+          : "Private Admin Feedback (no public consent)",
         submitted_at: payload.submittedAt
       })
     });
@@ -542,8 +578,8 @@ async function sendEmailNotification(payload) {
     school: payload.school || "Not provided",
     public_consent: payload.publicConsent ? "Yes" : "No",
     moderation_bucket: payload.eligibleForPublic
-      ? "Public Queue (> 4 stars, awaiting moderation)"
-      : "Private Admin Feedback (<= 4 stars)",
+      ? "Public Queue (consent given, awaiting moderation)"
+      : "Private Admin Feedback (no public consent)",
     submitted_at: payload.submittedAt
   });
 
@@ -645,7 +681,7 @@ feedbackForm.addEventListener("submit", async e => {
   const school = fbSchool.value.trim();
   const publicConsent = fbPublicConsent.checked;
   const displayName = formatPublicDisplayName(fullName);
-  const eligibleForPublic = rating > 4 && publicConsent;
+  const eligibleForPublic = publicConsent;
   const submittedAt = new Date().toLocaleString("en-GB", {
     year: "numeric",
     month: "short",
@@ -697,12 +733,9 @@ feedbackForm.addEventListener("submit", async e => {
       return;
     }
 
-    const routingNote =
-      rating > 4
-        ? publicConsent
-          ? `Because you rated Scribe AI ${rating}/5 stars and gave consent, your review (as "${displayName}") has been queued for moderator approval before appearing publicly.`
-          : `Your ${rating}/5 star review was recorded privately for the research team (public display consent was not checked).`
-        : `Your ${rating}/5 star feedback has been saved privately for the project administrators to help improve Scribe AI.`;
+    const routingNote = publicConsent
+      ? `Your review (as "${displayName}") is eligible for moderator approval before appearing publicly, regardless of its rating.`
+      : "Your feedback is private because public display consent was not checked.";
 
     showStatusBanner(
       "success",
@@ -735,6 +768,18 @@ function setFeedbackModal(open) {
   } else {
     feedbackFab.focus();
   }
+}
+
+// Make the unconnected form's state clear before the visitor fills in personal details.
+const emailSettings = window.SCRIBE_CONFIG?.email || {};
+const emailReady = emailSettings.provider === "formspree"
+  ? Boolean(emailSettings.formspree?.endpoint)
+  : Boolean(emailSettings.emailjs?.publicKey && emailSettings.emailjs?.serviceId && emailSettings.emailjs?.templateId);
+if (!getSupabaseConfig().configured && !emailReady) {
+  feedbackForm.querySelectorAll("input, select, textarea, button").forEach(control => control.disabled = true);
+  showStatusBanner("error", "Feedback submissions are not connected yet. The cards above are fictional examples; no personal details are collected here.");
+  fbSubmitBtn.querySelector(".btn-label").textContent = "Submissions not connected";
+  document.querySelector(".privacy-note").textContent = "No feedback is sent or saved while submissions are disconnected.";
 }
 
 feedbackFab.addEventListener("click", () => setFeedbackModal(true));

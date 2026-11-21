@@ -1,0 +1,46 @@
+SEVEN-MINUTE PRESENTATION ROUTE — TWO PRESENTERS
+
+This is a route, not a word-for-word script. Keep the website open before starting.
+
+0:00–0:45 | Presenter 1 | Project topic and goal
+Open with the question: "If AI writes a better essay, has the student learned more?"
+State the official topic and goal. Introduce the two authors and school briefly.
+
+0:45–1:35 | Presenter 2 | Why this topic and why essays matter
+Use the classroom photographs to introduce the work, not as proof of an experiment.
+Explain that writing practises argument, evidence, judgement and revision.
+
+1:35–2:55 | Presenter 1 | Experiment and results
+Show the three conditions. Explain the five criteria and the recorded scores.
+Clarify: one scored product per condition, assessed by the project authors.
+"This is a small pilot. It raises a useful question; it does not prove a general effect."
+Only present the scores as your experiment after checking the original work.
+
+2:55–3:55 | Presenter 2 | The balance model and workflow
+Show the green, yellow and red zones briefly. Select the green zone.
+Explain the sequence: think, plan, write, ask, check, revise, defend.
+Emphasise the student's decisions and ability to explain the final text.
+
+3:55–5:45 | Both | Scribe AI demonstration
+Move straight to Scribe AI using the navigation. Paste a prepared draft of your own.
+Choose ONE focus. Show the short guidance and explain the revision you would make.
+If the AI service is connected and verified, show an actual ready-made question,
+then the four-criterion review of your own essay and the original task.
+Explain that band estimates are approximate and not official IELTS scores.
+If not connected, say the AI integration is pending; do not claim an assessment ran.
+Do not claim that the project trained or invented a new language model.
+
+5:45–6:30 | Presenter 1 | What the project contributes
+Connect the interactive model, workflow and writing coach to the educational goal.
+Mention the mobile layout and the principle of hints rather than finished essays.
+
+6:30–7:00 | Presenter 2 | Conclusion and next step
+"AI can support writing, but students still need to make and explain their decisions."
+Next steps: check the original pilot evidence, gather real feedback, connect and
+evaluate the AI service, and test the approach with more learners and independent scoring.
+
+PRACTICAL CHECK
+Save the static website folder on the presentation laptop as a backup.
+The informational pages work locally; real AI requires internet and remaining free quota.
+Do not rely on finding the project through Google during the presentation.
+Use the direct URL or the QR code. Leave time for one short, rehearsed demonstration.

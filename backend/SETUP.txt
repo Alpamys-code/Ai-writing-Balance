@@ -1,0 +1,74 @@
+SCRIBE AI — FREE CLOUDFLARE WORKERS AI
+
+CURRENT DEPLOYMENT
+https://scribe-writing-coach.alpakuday2010.workers.dev/
+Already connected in config.js. A real coaching question and a full Task 2 essay
+review both returned HTTP 200 on 22 November 2026. The steps below are for
+re-deployment; creating another Worker is unnecessary for this website update.
+Functional success is not validation of the model's band-scoring accuracy.
+
+No purchased OpenAI API, no model API key and no rule-based trainer.
+Uses @cf/meta/llama-3.3-70b-instruct-fp8-fast through a Workers AI binding.
+Cloudflare currently gives Workers Free accounts 10,000 Neurons daily. This is
+compute allowance, not 10,000 requests. When exhausted, requests fail until reset;
+do not upgrade to Workers Paid if you want to stay within the free allocation.
+
+DASHBOARD SETUP (NO TERMINAL)
+1. Open https://dash.cloudflare.com/ -> Workers & Pages -> Create application.
+2. Select a simple Worker template (Hello World if offered) and name it
+   scribe-writing-coach. Alternatively the LLM Chat App template creates an AI app;
+   we will replace its Worker script with our own. Choose Deploy/Create and deploy.
+3. Open the Worker -> Edit code. Replace the default Worker code with the entire
+   contents of worker.mjs in this folder, then click Deploy/Save and deploy.
+4. In the Worker, open Bindings (or Settings -> Bindings) -> Add binding.
+   Choose Workers AI, enter the binding name exactly AI, and save/deploy.
+   If an AI binding already exists with that exact name, keep it.
+5. Open the Worker's public https://...workers.dev/ URL.
+   Our status page must show "service":"Scribe AI" and "connected":true.
+   This check does not spend AI quota. It checks the binding, not model availability.
+6. Share only that public URL so it can be inserted in the website config.
+   Do not share a password, login code, account token or private key.
+7. In config.js set coach.endpoint to the Worker URL plus /api/coach.
+   Example: https://scribe-writing-coach.YOUR-SUBDOMAIN.workers.dev/api/coach
+8. Upload config.js and the revised website files to the original GitHub Pages repo.
+9. Test an actual ready-made question and an actual essay from the published site.
+   If the model asks for account terms acceptance, resolve that in Cloudflare.
+
+OPTIONAL CLI ROUTE
+Use Node.js and Wrangler 4.36+ from this folder:
+  npx wrangler login
+  npx wrangler deploy
+wrangler.toml already includes the AI binding and an additional approximate rate limiter.
+No secret is needed. Use a unique rate-limit namespace for your own account.
+
+WHAT THE WEBSITE DOES
+- Clicking a ready-made question sends it immediately to the actual model.
+- Submitting an essay sends the essay and its question for Task 2 feedback.
+- Four criteria: Task Response; Coherence and Cohesion; Lexical Resource;
+  Grammatical Range and Accuracy. Each has an estimated band, explanation,
+  strength and improvement. The model may quote a short existing passage.
+- Overall Task 2 estimate: mean of the four criterion estimates rounded to 0.5.
+  It is not the official IELTS Writing score, which also involves Task 1.
+- The review includes strengths, improvement priorities and one next-step task.
+- Below 80 words, no band is shown; fewer than 250 words are underlength for Task 2.
+- Instructions prohibit full essays and replacement paragraphs. Model behaviour
+  must still be evaluated; prompt rules are not a perfect guarantee.
+- The website never substitutes canned guidance if disconnected or quota-limited.
+- No drafts are stored by this Worker. Remove personal information before sending.
+- Dashboard-only setup has an approximate isolate-local anti-spam throttle.
+  The optional Wrangler limiter is per location. Neither is authentication or a
+  global usage guarantee. Keep the free account quota in mind for a public launch.
+
+CHECKS TO MAKE BEFORE PRESENTING
+Ask each ready-made question. Submit an essay plus its real task. Check all four
+criteria and strengths/improvements. Try asking for a complete essay inside the
+draft; it should refuse to do the assessed writing. Check a short draft, a long
+draft and loss of connection. No simulated scores should appear.
+Code tests use mocked model outputs; a real model test needs your deployed Worker.
+
+OFFICIAL DOCUMENTATION (CHECKED 22 NOVEMBER 2026)
+https://developers.cloudflare.com/workers-ai/platform/pricing/
+https://developers.cloudflare.com/workers-ai/get-started/dashboard/
+https://developers.cloudflare.com/workers-ai/configuration/bindings/
+https://developers.cloudflare.com/workers-ai/features/json-mode/
+https://ielts.org/take-a-test/preparation-resources/writing-test-resources/

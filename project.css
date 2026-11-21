@@ -1,0 +1,190 @@
+/* Presentation and mobile refinements. Original component styles remain in style.css. */
+:root{--bg:#102b55;--surface:#173963;--surface2:#1c426e;--text:#f6faff;--muted:#c0d2e8;--line:rgba(184,217,255,.23);--blue:#9dcdff;--cyan:#8cf1eb;--green:#91efbf;--yellow:#ffe08b;--red:#ff9daf;color-scheme:dark}
+html{scroll-padding-top:24px}
+body{background:radial-gradient(ellipse at 85% 0%,#1d5480 0,transparent 35%),linear-gradient(180deg,#143763 0%,#102b55 42%,#12375b 100%);font-size:16px}
+body:before{background:radial-gradient(circle at 15% 25%,rgba(72,165,237,.1),transparent 45%)}
+.bg-grid{background-size:60px 60px;opacity:.5}
+.glow{opacity:.11}
+button,input,textarea,select{font:inherit}
+button,a,input,textarea,select{-webkit-tap-highlight-color:transparent}
+button{touch-action:manipulation}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+.section{padding:86px 28px}
+.section-heading{max-width:860px}
+.section-heading.centered{margin-left:auto;margin-right:auto}
+.section-heading h2,h2{font-size:clamp(30px,3.8vw,49px);line-height:1.13;letter-spacing:-1.8px;text-wrap:balance}
+.section-heading p{font-size:17px;line-height:1.75;color:var(--muted);max-width:740px;margin-top:20px}
+.section-number,.eyebrow,.tag{font-size:12px;color:#b5d5f5;letter-spacing:1.6px}
+.navbar{max-width:1240px;padding:0 150px 0 28px;gap:24px;height:88px}
+.logo{font-size:16px;flex-shrink:0}
+.logo-mark{width:38px;height:38px;background:rgba(140,241,235,.09)}
+nav{gap:20px}nav a{font-size:14px;white-space:nowrap}
+.nav-btn{display:none}
+.feedback-fab{top:23px;font-size:14px;background:#1c426e;padding:10px 16px;box-shadow:0 6px 24px rgba(3,16,38,.25)}
+.feedback-fab-icon{width:24px;height:24px}
+.hero{padding-top:65px;padding-bottom:65px;min-height:680px;gap:32px;grid-template-columns:1.12fr .88fr}
+h1{font-size:clamp(50px,6vw,82px);letter-spacing:-3px;line-height:1.02;margin:24px 0 20px}
+.hero-subtitle{font-size:clamp(21px,2.4vw,28px);line-height:1.35;color:#ebf4ff}
+.project-goal{margin-top:30px;padding-left:20px;border-left:3px solid var(--cyan);max-width:600px}
+.project-goal p{font-size:17px;color:var(--muted);margin-top:9px;line-height:1.75}
+.hero-actions{flex-wrap:wrap;gap:12px;margin:28px 0}
+.btn{font-size:15px;min-height:48px;padding:12px 18px;justify-content:center;text-align:center}
+.btn-primary{background:#91eee4;color:#092d45;box-shadow:0 5px 22px rgba(74,205,194,.12)}
+.btn-primary:hover{background:#b1fff4}
+.btn-ghost{color:#f3f8ff;background:rgba(116,173,226,.06)}
+.btn-ghost:hover{background:rgba(157,205,255,.12)}
+.btn:disabled{cursor:wait;opacity:.65;transform:none}
+.hero-meta{gap:28px}.hero-meta strong{font-size:23px}.hero-meta span{font-size:12px}
+.hero-visual{height:500px;min-width:0}
+.ai-core{background:radial-gradient(circle,#24618a 0%,#14365d 65%,#14365d 100%);border-color:#78bfd0;box-shadow:0 0 90px rgba(104,232,222,.13),inset 0 0 42px rgba(98,168,255,.14)}
+.core-small{color:#c4e4f5;font-size:10px;letter-spacing:2.5px}.core-big{color:#e7ffff}
+.orbit{border-color:rgba(150,211,247,.28)}
+.floating-card{background:#1a426b;border-color:rgba(184,217,255,.3);box-shadow:0 14px 40px rgba(6,22,43,.22);max-width:280px}
+.floating-card b{font-size:14px}.floating-card small{font-size:12px;color:var(--muted)}
+.card-top{right:0;top:45px}.card-bottom{left:0;bottom:50px}
+.team-section{display:grid;grid-template-columns:.92fr 1.08fr;align-items:center;gap:54px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.school-identity{display:flex;align-items:center;gap:18px;margin:24px 0}
+.school-identity img{width:84px;height:90px;object-fit:contain;border-radius:16px;flex-shrink:0;background:#fff}
+.school-identity h2{font-size:clamp(24px,2.8vw,34px);letter-spacing:-1px;margin-top:6px}
+.school-identity .tag{font-size:11px}
+.project-authors{font-size:18px;color:var(--muted);line-height:1.6;margin-top:25px}
+.project-authors strong{font:600 clamp(22px,2.3vw,28px)/1.4 "Space Grotesk",Inter,sans-serif;display:block;color:#f4faff;margin-top:9px}
+.team-description{color:var(--muted);margin:20px 0;font-size:16px;max-width:500px}
+.text-link{display:inline-block;border-bottom:1px solid var(--cyan);color:var(--cyan);padding:6px 0;font-size:15px}
+.team-photo{min-width:0}.team-photo img{width:100%;height:auto;border-radius:20px;border:1px solid var(--line)}
+figcaption{font-size:13px;color:var(--muted);line-height:1.6;padding-top:12px}
+.why-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center;margin-top:38px}
+.why-reasons article{padding:24px 0;border-bottom:1px solid var(--line)}
+.why-reasons article:first-child{padding-top:0}
+.why-reasons h3{font-size:22px;line-height:1.3;margin:10px 0}
+.why-reasons p{color:var(--muted);font-size:16px;line-height:1.75}
+.why-reasons .source-note{font-size:13px;margin-top:18px}
+.process-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;min-width:0}
+.process-photos figure:nth-child(2){margin-top:42px}
+.process-photos img{width:100%;height:auto;border-radius:16px;border:1px solid var(--line)}
+.skills-section{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:36px}
+.skills-grid article{background:rgba(157,205,255,.07);border:1px solid var(--line);border-radius:16px;padding:24px}
+.skill-symbol{display:grid;place-items:center;width:44px;height:44px;color:var(--cyan);background:rgba(140,241,235,.1);border-radius:12px;font:600 22px "Space Grotesk",sans-serif}
+.skills-grid h3{font-size:20px;margin:20px 0 12px;line-height:1.3}
+.skills-grid p{font-size:15px;color:var(--muted);line-height:1.75}
+.skills-takeaway{margin-top:28px;color:var(--cyan);font-size:18px;border-left:3px solid var(--cyan);padding-left:18px}
+.large-copy{font-size:21px}.problem-copy p{font-size:17px;color:var(--muted);line-height:1.8}.problem-copy .large-copy{font-size:21px;color:#ebf6ff}
+.signal-box,.chart-card,.index-card,.zone-card,.prompt-card,.rubric-card,.tip-card,.video-card,.score-card,.essay-workspace,.ai-tutor-card,.feedback-modal,.faq-modal{background:#18395f;border-color:var(--line)}
+.zone-card.active,.zone-card:hover,.video-card:hover{background:#214970}
+.index-card,.chart-card{padding:26px}
+.condition-panel{background:linear-gradient(120deg,#1c426e,#163657)}
+.condition-tab,.essay-tab{font-size:14px;min-height:44px}
+.condition-main h3{font-size:28px}.condition-main p{font-size:16px}
+.role-grid span,.condition-score>span,.signal-label{font-size:12px}.role-grid strong{font-size:14px}
+.signal-note,.chart-note{font-size:13px;color:var(--muted)}
+.signal-track{max-width:100%}
+.bar-label{font-size:15px}.max-score{font-size:12px}.chart-title h3{font-size:27px}
+.index-card span{font-size:11px;color:#b8d1ea}.index-card p{font-size:14px}.index-card strong{font-size:34px}
+.criteria>div{font-size:14px;padding:16px}.criteria-head{font-size:11px!important;color:#c0d2e8!important}
+.source-note{font-size:13px;color:#bfd0e3;line-height:1.7}
+.pilot-scope{font-size:14px;color:#d5e6f5;background:rgba(157,205,255,.08);border-left:3px solid var(--blue);padding:15px 18px;margin-top:20px;line-height:1.7}
+.zone-top,.zone-top b{font-size:12px;color:#bbd4ea}.zone-card p{font-size:15px;max-width:none}.zone-expand{font-size:14px}
+.zone-detail span{font-size:12px}.zone-detail p{font-size:16px}.zone-detail h3{font-size:23px}
+.step{padding:22px 13px}.step span{font-size:12px;color:#b8cde4}.step p{font-size:14px}.step strong{font-size:17px}
+.formula{font-size:13px;color:#c1d5e9;gap:11px}
+.prompt-head{font-size:12px}code{font-size:16px}.copy-btn{font-size:14px;min-height:44px;color:#d1e4f8}
+.prompt-tip span{font-size:12px}.prompt-tip p{font-size:16px;color:var(--muted)}
+.rubric-card{padding:21px}.rubric-card>span{font-size:12px;color:var(--muted)}.rubric-card p{font-size:15px}
+.essay-text p{font-size:17px;line-height:1.85}.word-count{font-size:13px}.essay-pane-head h3{font-size:26px}
+.score-card>span,.overall-score>span{font-size:11px}.score-card p,.overall-review p{font-size:15px;min-height:0}
+.score-card strong span{font-size:16px}.advice-grid b,.template-row b{font-size:13px}.advice-grid p{font-size:15px}
+.template-row p{font-size:16px}.template-row small{font-size:14px;color:#c0d2e8}.template-row em{color:#d2e7fa}
+.word-bank span{font-size:12px}.word-bank b{font-size:13px;background:#23476c}
+.tip-card h3{font-size:23px}.tip-card>p{font-size:15px}.tip-mini{font-size:14px}.tip-number{font-size:14px}
+.video-section-head p,.video-card p{font-size:15px}.video-card span,.video-card b{font-size:12px}.video-card h4{font-size:19px}
+.ai-tutor-copy p{font-size:16px}.conclusion p{font-size:17px}.conclusion h2{font-size:clamp(28px,3.8vw,46px)}
+.coach-section{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.coach-intro .section-heading h2{font-size:clamp(36px,4vw,52px)}
+.coach-principles{margin-top:32px}.coach-principles>div{padding:18px 0;border-top:1px solid var(--line)}
+.coach-principles strong{font-size:17px;color:#ecf8ff}.coach-principles p{font-size:15px;color:var(--muted);margin-top:7px}
+.prototype-note{font-size:13px;color:#bfd4eb;line-height:1.75;margin-top:24px}
+.coach-workspace{min-width:0;background:#17395f;border:1px solid rgba(140,241,235,.4);border-radius:20px;padding:28px;box-shadow:0 18px 50px rgba(5,21,44,.16)}
+.coach-mode{font-size:13px;color:#c7f5e9;background:rgba(140,241,235,.08);padding:10px 12px;border-radius:8px;margin-bottom:22px;border:1px solid rgba(140,241,235,.22)}
+.coach-mode.is-live{color:#b8ffda}
+.coach-field-label{display:block;font-weight:600;font-size:17px;color:#f4faff}
+.coach-help{font-size:13px;color:#bfd0e3;line-height:1.65;margin:9px 0 14px}
+#coachEssay{display:block;box-sizing:border-box;width:100%;max-width:100%;min-height:220px;resize:vertical;border:1px solid #6c8cac;border-radius:12px;background:#0e2948;color:#f4faff;padding:16px;font:400 16px/1.75 Inter,Arial,sans-serif;scroll-margin-top:20px}
+#coachEssay::placeholder{color:#a8c0da}
+#coachEssay:focus{outline:2px solid var(--cyan);outline-offset:3px}
+#coachTask{box-sizing:border-box;width:100%;border:1px solid #6c8cac;border-radius:10px;background:#0e2948;color:#f4faff;padding:13px;font:400 16px/1.6 Inter,Arial,sans-serif;margin-top:10px}
+#coachTask::placeholder{color:#a8c0da}
+#coachTask:focus{outline:2px solid var(--cyan);outline-offset:3px}
+.coach-answer{font-size:16px;white-space:pre-line;line-height:1.8;color:var(--muted)}
+.coach-band-summary{padding:20px;border:1px solid rgba(140,241,235,.35);background:rgba(140,241,235,.07);border-radius:12px;margin:18px 0}
+.coach-band-summary>span{font-size:14px;color:#c8f4ec}.coach-band-summary strong{display:block;font:700 44px/1.2 "Space Grotesk",sans-serif;margin:8px 0;color:var(--cyan)}
+.coach-band-summary p{font-size:14px;color:var(--muted);line-height:1.7}
+.coach-criteria-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.coach-response .coach-criterion{padding:18px;border:1px solid var(--line);border-radius:12px;background:rgba(157,205,255,.04)}
+.coach-criterion h4{font:600 19px/1.4 "Space Grotesk",sans-serif;margin-bottom:8px}
+.criterion-band{display:inline-block;color:var(--cyan);font-size:14px;font-weight:600;padding:5px 9px;background:rgba(140,241,235,.08);border-radius:6px;margin-bottom:10px}
+.coach-criterion blockquote{margin-top:12px}.coach-criterion .criterion-strength{margin-top:10px;color:#cbf7df}.coach-criterion .criterion-improve{margin-top:8px;color:#e1edfc}
+.coach-list-title{font-size:18px;margin:24px 0 10px}.coach-feedback-list{padding-left:22px;color:var(--muted);font-size:15px;line-height:1.8}.coach-feedback-list li{margin-bottom:7px}
+.coach-input-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+.coach-focus{min-width:0;border:0;margin:24px 0}
+.coach-focus legend{font-weight:600;font-size:15px;margin-bottom:12px}
+.coach-questions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.coach-question{min-width:0;min-height:52px;padding:11px 12px;text-align:left;font-size:14px;line-height:1.5;white-space:normal;background:#163253;border:1px solid #5c7da1;color:#dcebf8;border-radius:10px;cursor:pointer}
+.coach-question.active{background:rgba(140,241,235,.12);border-color:var(--cyan);color:#cafff5}
+.coach-submit{width:100%}.coach-notice{font-size:14px;color:var(--yellow);margin-top:12px;line-height:1.6}
+.coach-response{margin-top:24px;padding-top:24px;border-top:1px solid var(--line);scroll-margin-top:30px}
+.coach-response h3{font-size:23px;margin:10px 0 20px}.coach-response article{padding:17px 0;border-bottom:1px solid var(--line)}
+.coach-response article p{font-size:15px;line-height:1.75;color:var(--muted)}
+.coach-response article .coach-question-text{margin-top:8px;color:#dcfcf7;font-weight:500}
+.coach-response blockquote{font-size:14px;line-height:1.7;color:#d6eaff;border-left:2px solid #89bade;margin:0 0 9px;padding-left:12px;overflow-wrap:anywhere}
+.coach-next-step{padding:16px;border-radius:10px;background:rgba(140,241,235,.08);color:#d6fff4;font-size:15px;margin-top:20px}
+.reviews-more{margin-top:20px;width:100%}.reviews-count{font-size:13px;color:var(--muted);margin-top:9px}
+.feedback-header p,.form-section-head p,.review-text{font-size:15px}.feedback-header h2{font-size:34px;padding-right:10px}
+.review-card{background:#1c4068;padding:20px}.review-card.verified-community{background:#1d4668}
+.reviewer-meta strong{font-size:15px}.reviewer-meta span,.reviews-sync-status{font-size:12px}.review-stars{font-size:14px}
+.review-tag{font-size:11px}.review-tag.demo-tag{color:#c7d9ec}.demo-disclaimer-badge{font-size:12px}
+.feedback-modal,.faq-modal{border-color:#6084ab}.feedback-close,.faq-close{color:#deedfc}
+.form-group label,.checkbox-label,.privacy-note{font-size:14px}.form-group input[type=text],.form-group select,.form-group textarea{font-size:16px;background:#102d4f}
+.field-error{font-size:13px}.opt-tag{font-size:12px}.rating-readout{font-size:13px}.form-actions{flex-wrap:wrap}
+.faq-list summary{font-size:16px}.faq-list details{background:#133252}.faq-list details p{font-size:15px}
+.faq-fab{background:#234d74;font-size:14px;right:22px;bottom:20px}
+footer{font-size:13px;color:#c0d2e8;gap:24px}footer strong{font-size:16px;color:#eaf5ff}
+@media(min-width:961px) and (max-width:1150px){nav{gap:12px}nav a{font-size:12px}.logo{font-size:14px}.navbar{gap:15px}}
+@media(max-width:960px){
+  .navbar{padding:0 155px 0 24px;justify-content:space-between;gap:12px}
+  .hero{grid-template-columns:1fr;min-height:0;padding-top:50px}.hero-copy{max-width:720px}.hero-visual{height:380px;width:min(540px,100%);justify-self:center}
+  .team-section,.why-layout,.coach-section{grid-template-columns:1fr;gap:32px}.team-copy{max-width:670px}
+  .team-photo{max-width:760px}.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .why-layout{margin-top:26px}.process-photos{max-width:760px}.process-photos figure:nth-child(2){margin-top:24px}
+  .coach-intro{max-width:740px}.coach-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.coach-workspace{width:100%}
+  .floating-card.card-top{top:14px;right:0}.floating-card.card-bottom{bottom:14px;left:0}
+  nav.menu-open{top:82px;background:#20456f}
+  .workflow{grid-template-columns:repeat(4,minmax(0,1fr))}.step p{font-size:14px}.rubric-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .section{padding:56px 20px}.navbar{height:80px;padding:0 125px 0 16px;gap:8px}.logo{font-size:13px;gap:7px}.logo-mark{width:30px;height:30px;font-size:13px}
+  .menu-toggle{font-size:13px;padding:8px;min-height:42px}.feedback-fab{top:20px;right:12px;font-size:12px;padding:8px 10px;gap:6px}.feedback-fab-icon{width:20px;height:20px;font-size:11px}
+  .eyebrow{font-size:10px;line-height:1.8;letter-spacing:1px;align-items:flex-start}.pulse{margin-top:6px;flex-shrink:0}
+  h1{font-size:clamp(40px,10.6vw,60px);letter-spacing:-2px;margin-top:20px}.hero{padding-top:30px;gap:20px}.hero-subtitle{font-size:22px}
+  .hero-visual{height:310px}.floating-card{padding:12px;max-width:230px}.floating-card b{font-size:13px}.floating-card small{font-size:11px}.card-top{right:0}.card-bottom{left:0}
+  .hero-actions{display:grid;grid-template-columns:1fr}.hero-meta{justify-content:space-between;gap:12px}.hero-meta strong{font-size:20px}.hero-meta span{font-size:11px}
+  .section-heading h2,h2{font-size:33px;letter-spacing:-1.3px}.section-heading p,.project-goal p{font-size:16px}.section-number{font-size:11px;letter-spacing:1.2px}
+  .school-identity{gap:13px}.school-identity img{width:66px;height:71px}.school-identity h2{font-size:24px}.school-identity .tag{font-size:10px;letter-spacing:1px}
+  .project-authors{font-size:18px}.project-authors strong{font-size:25px}
+  .why-layout{gap:28px}.why-reasons h3{font-size:21px}.process-photos{gap:12px}.process-photos figure:nth-child(2){margin-top:24px}figcaption{font-size:12px}
+  .skills-grid{gap:12px}.skills-grid article{padding:18px}.skills-grid h3{font-size:18px}.skills-grid p{font-size:14px}.skills-takeaway{font-size:17px}
+  .condition-panel{padding:22px}.condition-tabs{flex-wrap:wrap;gap:8px}.condition-tab{flex:1 1 125px;font-size:13px;padding:10px}
+  .problem-grid{gap:28px}.large-copy,.problem-copy .large-copy{font-size:19px}.signal-box{padding:22px}.signal-track{width:100%}.signal-row>div{flex:1;min-width:0}
+  .criteria>div{min-width:620px}.workflow{grid-template-columns:1fr 1fr}.rubric-grid{grid-template-columns:1fr 1fr}.rubric-card{min-height:0;padding:19px}
+  .formula{font-size:12px;gap:9px;padding:20px}.prompt-tip{gap:12px;align-items:flex-start;flex-direction:column}
+  .coach-section{gap:28px}.coach-principles{display:block}.coach-principles>div{padding:15px 0}.coach-workspace{padding:20px;border-radius:16px}
+  .coach-questions{grid-template-columns:1fr}.coach-question{font-size:15px;min-height:48px}.coach-mode{font-size:12px}
+  #coachEssay{min-height:250px;padding:13px;font-size:16px}.coach-input-meta{font-size:11px}.coach-response h3{font-size:24px}
+  .feedback-overlay,.faq-overlay{padding:10px}.feedback-modal{padding:26px 20px;max-height:calc(100dvh - 20px)}
+  .feedback-header h2{font-size:28px}.feedback-header{padding-right:24px}.feedback-close{top:12px;right:12px}.review-card-top{flex-wrap:wrap}
+  .faq-fab{right:14px;bottom:14px}.essay-pane{padding:20px}.essay-text p{font-size:16px}.template-row{gap:8px}.tip-card{padding:22px}
+  .chart-card,.index-card{padding:22px}.index-card strong{font-size:31px}.conclusion{padding-top:45px}.conclusion h2{font-size:32px}
+  footer{padding:26px 20px 80px}.feedback-header p{font-size:14px}
+}
+@media(max-width:360px){.logo{font-size:12px}.logo-mark{display:none}.skills-grid{grid-template-columns:1fr}.school-identity h2{font-size:21px}.coach-workspace{padding:16px}.section{padding-left:16px;padding-right:16px}}

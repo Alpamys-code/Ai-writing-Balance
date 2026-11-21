@@ -7,6 +7,10 @@
 // ============================================================================
 
 window.SCRIBE_CONFIG = {
+  // After deploying the free Cloudflare Workers AI backend, paste its /api/coach URL here.
+  // Leave empty until connected. No AI or fake assessment runs while disconnected.
+  // No paid API key is needed. Never put private credentials in frontend code.
+  coach: { endpoint: "https://scribe-writing-coach.alpakuday2010.workers.dev/api/coach" },
   // 1. SUPABASE CONFIGURATION (Shared Cross-Device Reviews Database)
   // Get these from: Supabase Dashboard -> Project Settings -> API
   supabase: {

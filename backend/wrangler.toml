@@ -1,0 +1,16 @@
+name = "scribe-writing-coach"
+main = "worker.mjs"
+compatibility_date = "2026-11-20"
+
+[vars]
+ALLOWED_ORIGIN = "https://alpamys-code.github.io"
+
+[ai]
+binding = "AI"
+
+# A shared prototype throttle, approximate and per Cloudflare location.
+# Select a namespace ID not already used by another Worker on your account.
+[[ratelimits]]
+name = "COACH_LIMITER"
+namespace_id = "21501"
+simple = { limit = 20, period = 60 }
